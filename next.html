@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Next Page — Be My Valentine</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .textboard {
+      background: white;
+      border: 4px solid #ff9aa2;
+      border-radius: 12px;
+      padding: 2rem;
+      max-width: 600px;
+      width: 90%;
+      box-shadow: 0 8px 28px rgba(0,0,0,0.12);
+      position: relative;
+      margin: 1.5rem 0;
+    }
+    .textboard h2 { color: #ff577f; margin-top: 0; text-align: center; }
+    .textboard-content p { color: #6b2832; line-height: 1.6; text-align: center; white-space: normal; word-spacing: 0.1em; }
+    .letter-anim { display: inline; opacity: 0; animation: fadeInLetter 0.5s ease forwards; }
+    @keyframes fadeInLetter {
+      0% { opacity: 0; transform: translateY(4px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .textboard-decor { font-size: 2rem; text-align: center; margin: 0.8rem 0; }
+    .hearts-row { display: flex; justify-content: space-around; font-size: 1.8rem; margin: 1rem 0; }
+    .cinnamoroll { font-size: 3rem; text-align: center; }
+  </style>
+</head>
+<body>
+  <main class="page" style="padding: 1rem;">
+    <h1 style="color: #ff577f;">💌 For You 💌</h1>
+    
+    <div class="textboard">
+      <div class="hearts-row">
+        <span>❤️</span>
+        <span>💖</span>
+        <span>❤️</span>
+      </div>
+      <div class="textboard-content">
+        <p id="animText">Hello, Kat. First off... Thank you for being with me for all this time. I don't say this a lot but I thank God, that you came into my life. My encounter with you online has and always been the most unexpected, but welcome outcomes ever. Words cannot express how much i'm grateful for that. I really love deeply, genuinely, and sincerely. I wholeheartedly believe in you, and whatever dreams you aspire for your/our future. I love you my beloved, Kat 🤍</p>
+      </div>
+      <div class="hearts-row">
+        <span>💕</span>
+        <span>💝</span>
+        <span>💕</span>
+      </div>
+    </div>
+
+    <div style="margin-top: 1.5rem;">
+      <a class="btn next-btn" href="index.html">← Back</a>
+    </div>
+  </main>
+
+  <script>
+    const textEl = document.getElementById('animText');
+    if (textEl) {
+      const text = textEl.textContent;
+      textEl.innerHTML = '';
+      let delay = 0;
+      for (let char of text) {
+        const span = document.createElement('span');
+        span.className = 'letter-anim';
+        span.textContent = char;
+        span.style.animationDelay = (delay * 40) + 'ms';
+        textEl.appendChild(span);
+        delay++;
+      }
+    }
+  </script>
+</body>
+</html>
